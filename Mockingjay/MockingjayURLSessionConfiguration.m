@@ -17,6 +17,7 @@
 @implementation MockingjayURLConfiguration
 
 + (void)load {
+	
     [NSURLSessionConfiguration mockingjaySwizzleDefaultSessionConfiguration];
 }
 
