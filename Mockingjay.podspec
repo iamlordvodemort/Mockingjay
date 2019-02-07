@@ -1,30 +1,31 @@
 Pod::Spec.new do |spec|
   spec.name = 'Mockingjay'
-  spec.version = '2.0.0'
+  spec.version = '2.0.1'
   spec.summary = 'An elegant library for stubbing HTTP requests with ease in Swift.'
-  spec.homepage = 'https://github.com/kylef/Mockingjay'
+  spec.homepage = 'https://github.com/iamlordvodemort/Mockingjay'
   spec.license = { :type => 'BSD', :file => 'LICENSE' }
-  spec.author = { 'Kyle Fuller' => 'kyle@fuller.li' }
-  spec.social_media_url = 'http://twitter.com/kylefuller'
-  spec.source = { :git => 'https://github.com/kylef/Mockingjay.git', :tag => "#{spec.version}" }
+  spec.authors = [{ 'Kyle Fuller' => 'kyle@fuller.li' }, {'Anthony Layne' => 'anthony.layne@me.com'}]
+  # spec.social_media_url = 'http://twitter.com/kylefuller'
+  spec.source = { :git => 'https://github.com/iamlordvodemort/Mockingjay.git', :tag => "#{spec.version}" }
   spec.ios.deployment_target = '8.0'
   spec.osx.deployment_target = '10.9'
   spec.requires_arc = true
 
   spec.subspec 'Core' do |core_spec|
-    core_spec.dependency 'URITemplate', '~> 2.0'
+    # core_spec.dependency 'URITemplate', '~> 2.0'
     core_spec.source_files = 'Mockingjay/Mockingjay.{h,swift}',
         'Mockingjay/MockingjayProtocol.swift',
         'Mockingjay/{Matchers,Builders}.swift',
         'Mockingjay/NSURLSessionConfiguration.swift',
-        'Mockingjay/MockingjayURLSessionConfiguration.m'
+        'Mockingjay/MockingjayURLSessionConfiguration.m',
+        'Mockingjay/URITemplate.swift'
   end
 
-  spec.subspec 'XCTest' do |xctest_spec|
-    xctest_spec.dependency 'Mockingjay/Core'
-    xctest_spec.source_files = 'Mockingjay/XCTest.swift'
-    xctest_spec.frameworks = 'XCTest'
-    xctest_spec.pod_target_xcconfig = { 'ENABLE_BITCODE' => 'NO' }
-  end
+  # spec.subspec 'XCTest' do |xctest_spec|
+  #   xctest_spec.dependency 'Mockingjay/Core'
+  #   xctest_spec.source_files = 'Mockingjay/XCTest.swift'
+  #   xctest_spec.frameworks = 'XCTest'
+  #   xctest_spec.pod_target_xcconfig = { 'ENABLE_BITCODE' => 'NO' }
+  # end
 end
 
